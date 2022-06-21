@@ -4,6 +4,12 @@ from DataFrm.DataFrm import DateFrm
 
 
 def get_info():
+
+    """
+    1. 抓取Entry資料並寫入DateFrm的dict內
+    2. 產生.docx 文件檔 並寫入使用者所填入的資料 並在開頭加上一張公司LOGO圖片
+    """
+
     DateFrm['chineseName_var'] = chineseNameEntry.get()
     DateFrm['englishName_var'] = englishNameEntry.get()
     DateFrm['emailAddress_var'] = emailAddressEntry.get()
@@ -30,22 +36,26 @@ def get_info():
           )
 
 
+# 產生主視窗 設定大小 以及抬頭
 root = tk.Tk()
 root.geometry('350x150')
 root.title('Create outlook sign')
 
+# 輸入視窗資料型別定義
 chineseName_var = tk.StringVar()
 englishName_var = tk.StringVar()
 emailAddress_var = tk.StringVar()
 companyPhone_var = tk.StringVar()
 mobilePhone_var = tk.StringVar()
 
+# 創建標示標籤
 chineseNameLabel = tk.Label(root, text='chineseName', font=('caliber', 10, 'bold'))
 englishNameLabel = tk.Label(root, text='englishName', font=('caliber', 10, 'bold'))
 emailAddressLabel = tk.Label(root, text='emailAddress', font=('caliber', 10, 'bold'))
 companyPhoneLabel = tk.Label(root, text='companyPhone', font=('caliber', 10, 'bold'))
 mobilePhoneLabel = tk.Label(root, text='mobilePhone', font=('caliber', 10, 'bold'))
 
+# 創建輸入視窗
 chineseNameEntry = tk.Entry(root, textvariable=chineseName_var, font=('caliber', 10, 'bold'))
 englishNameEntry = tk.Entry(root, textvariable=englishName_var, font=('caliber', 10, 'bold'))
 emailAddressEntry = tk.Entry(root, textvariable=emailAddress_var, font=('caliber', 10, 'bold'))
@@ -53,6 +63,7 @@ companyPhoneEntry = tk.Entry(root, textvariable=companyPhone_var, font=('caliber
 mobilePhoneEntry = tk.Entry(root, textvariable=mobilePhone_var, font=('caliber', 10, 'bold'))
 createButton = tk.Button(root, text='CreateSign', command=get_info, font=('caliber', 10, 'bold'))
 
+# 定位點
 chineseNameLabel.grid(row=0, column=0)
 chineseNameEntry.grid(row=0, column=1)
 englishNameLabel.grid(row=1, column=0)

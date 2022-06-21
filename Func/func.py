@@ -5,6 +5,9 @@ class Create:
 
     """創建輸入視窗"""
 
+    def __init__(self):
+        pass
+
     def get_info(self):
         DateFrm['chineseName_var'] = chineseNameEntry.get()
         DateFrm['englishName_var'] = englishNameEntry.get()
@@ -18,4 +21,11 @@ class Create:
         emailAddress_var.set('')
         companyPhone_var.set('')
         mobilePhone_var.set('')
+
+    def create_label(self):
+        pass
+
+    def create_entry(self):
+        pass
+
 
